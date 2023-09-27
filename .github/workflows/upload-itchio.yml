@@ -4,11 +4,7 @@
 
 name: itch.io upload
 
-on:
-  push:
-    paths:
-      - ".github/workflows/upload-itchio.yml"
-      - "export_presets.html.example"
+on: push
 
 env:
   WORKING_DIRECTORY: game
