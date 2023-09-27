@@ -29,6 +29,7 @@ onready var scroll:ScrollContainer = $ScrollContainer
 onready var list:VBoxContainer = $ScrollContainer/List
 onready var tween:Tween = $Tween
 onready var retry_button:Button = $Retry
+onready var animation_player:AnimationPlayer = $AnimationPlayer
 
 
 var gift_labels:Array = []
@@ -37,6 +38,8 @@ func _ready() -> void:
 	for i in range(GIFTS.size() * 1000):
 		_add_label(GIFTS[i % GIFTS.size()])
 		_add_label(JOKE_GIFTS[i % JOKE_GIFTS.size()])
+		
+	yield(get_tree().create_timer(0.8), "timeout")
 	_spin()
 
 
@@ -50,7 +53,6 @@ func _add_label(text:String) -> void:
 	gift_labels.append(label)
 
 func _spin() -> void:
-	retry_button.hide()
 	var random_gift_position:int = int(rand_range(10, 500)) * LABEL_HEIGHT
 	print(random_gift_position)
 	tween.interpolate_property(scroll, "scroll_vertical", 0, random_gift_position, SCROLL_TIME, Tween.TRANS_SINE)
@@ -59,7 +61,7 @@ func _spin() -> void:
 	
 
 func _on_Retry_pressed()  -> void:
-	_spin()
+	get_tree().change_scene("res://src/gift_roulette/gift_roulette.tscn")
 	
 func _show_retry() -> void:
-	retry_button.show()
+	animation_player.play("RetryFadeIn")
