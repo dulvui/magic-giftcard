@@ -5,21 +5,21 @@
 extends Control
 
 const GIFTS = [
-	"VALENCIA",
-	"MALTA",
-	"MALAGA/SEVILLA",
-	"LISBONA",
-	"CIPRO",
-	"MALLORCA"
+	"3x TEATRO",
+	"3x CINEMA",
+	"1x BRUNCH",
+	"1x MIHO",
+	"2x VIKTORS",
+	"1x TERME MERANO"
 ]
 
 const JOKE_GIFTS = [
-	"LAIVES",
-	"BRONZOLO",
-	"NANNA ALLE 10",
-	"IN GARAGE",
-	"DAI TUOI",
-	"DAI MIEI"
+	"",
+	"",
+	"",
+	"",
+	"",
+	""
 ]
 
 const LABEL_HEIGHT:int = 122
